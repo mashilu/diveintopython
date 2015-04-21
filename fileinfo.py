@@ -37,10 +37,11 @@ class MP3FileInfo(FileInfo):
 			finally:
 				fsock.close()
 			print(tagdata[:3])
-			if tagdata[:3].decode("utf8") == "TAG":
+			if tagdata[:3].decode("gbk") == "TAG":
 				print("Asdf")
 				for tag, (start, end, parseFunc) in self.tagDataMap.items():
-					self[tag] = parseFunc(tagdata[start:end])
+					print(tag)
+					self[tag] = parseFunc(tagdata[start:end].decode("gbk"))
 		except IOError:
 			print("*****")
 			pass
