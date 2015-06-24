@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE grammar PUBLIC "-//diveintopython.org//DTD Kant Generator Pro v1.0//EN" "kgp.dtd">
 <grammar>
 <ref id="conjunction">
@@ -291,16 +291,29 @@
 </ref>
 
 <ref id="section">
-  <p><xref id="paragraph"/>
-<xref id="paragraph"/>
-<xref id="paragraph"/>
-<xref id="paragraph"/>
-<p chance="50"><xref id="paragraph"/>
-</p><p chance="50"><xref id="paragraph"/>
-</p><p chance="50"><xref id="paragraph"/>
-</p><p chance="50"><xref id="paragraph"/>
-</p><p chance="50"><xref id="paragraph"/>
-</p><p chance="50"><xref id="paragraph"/>
-</p></p>
+  <p>
+  	<xref id="paragraph"/>
+		<xref id="paragraph"/>
+		<xref id="paragraph"/>
+		<xref id="paragraph"/>
+		<p chance="50">
+			<xref id="paragraph"/>
+		</p>
+		<p chance="50">
+			<xref id="paragraph"/>
+		</p>
+		<p chance="50">
+			<xref id="paragraph"/>
+		</p>
+		<p chance="50">
+			<xref id="paragraph"/>
+		</p>
+		<p chance="50">
+			<xref id="paragraph"/>
+		</p>
+		<p chance="50">
+			<xref id="paragraph"/>
+		</p>
+	</p>
 </ref>
 </grammar>

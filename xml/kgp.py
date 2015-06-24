@@ -1,3 +1,4 @@
+# coding=utf-8
 """Kant Generator for Python
 Generates mock philosophy based on a context-free grammar
 Usage: python kgp.py [options] [source]
@@ -23,6 +24,7 @@ class NoSourceError(Exception) : pass
 
 class KantGenerator:
     """generate mock philosophy based on a context-free grammar"""
+    
     
     def __init__(self, grammar, source = None):
         self.loadGrammar(grammar)
@@ -101,10 +103,10 @@ class KantGenerator:
         
         choices = [e for e in node.childNodes if e.nodeType == e.ELEMENT_NODE]
         chosen = random.choice(choices)
-        if _debug:
-            sys.stderr.write('%s available choices: %s\n' % \
-                             (len(choices), [e.toxml() for e in choices]))
-            sys.stderr.write('Chosen: %s\n' % chosen.toxml())
+        #if _debug:
+        #sys.stderr.write('%s available choices: %s\n' % \
+                             #(len(choices), [e.toxml() for e in choices]))
+        #sys.stderr.write('Chosen: %s\n' % chosen.toxml())
         return chosen
     
     def parse(self, node):
@@ -168,7 +170,7 @@ class KantGenerator:
     def do_xref(self, node):
         """handle <xref id='...'> tag
         
-        An <xref id='...'> tag is a cross−reference to a <ref id='...'> tag. 
+        An <xref id='...'> tag is a cross-reference to a <ref id='...'> tag. 
         <xref id='sentence'/> evaluates to a randomly chosen child of <ref id='sentence'>.
         """
         id = node.attributes["id"].value
@@ -181,7 +183,7 @@ class KantGenerator:
         freeform text, <choice> tags, <xref> tags, even other <p> tags. 
         If a "class='sentence'" attribute is found, a flag is set and the next 
         word will be capitalized. If a "chance='X'" attribute is found, there 
-        is an X% chance that the tag will be evaluated (and therefore a (100−X)% 
+        is an X% chance that the tag will be evaluated (and therefore a (100鈭扻)% 
         chance that it will be completely ignored)
         """
         keys = node.attributes.keys()
@@ -204,6 +206,14 @@ class KantGenerator:
         """
         self.parse(self.randomChildElement(node))
         
+    def do_grammar(self, node):
+        for child in node.childNodes:
+            self.parse(child)
+    
+    def do_ref(self, node):
+        for child in node.childNodes:
+            self.parse(child)
+        
 def usage():
     print(__doc__)
         
@@ -219,7 +229,7 @@ def main(argv):
             usage()
             sys.exit()
         elif opt == '-d':
-            global _debug
+            #global _debug
             _debug = 1
         elif opt in ("-g", "--grammar"):
             grammar = arg
@@ -229,4 +239,4 @@ def main(argv):
     print(k.output())
     
 if __name__ == "__main__":
-    main("E:\\1_CODE\\0_github\\python\\diveintopython\\xml\\kant1.xml")
+    main("E:\\2_code\\0_github\\python\\diveintopython\\xml\\kant.xml")
