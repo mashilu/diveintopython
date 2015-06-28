@@ -1,5 +1,9 @@
 from xml.dom import minidom
 
-xmldoc = minidom.parse("E:\\1_CODE\\0_github\\python\\diveintopython\\xml\\kant.xml")
+xmldoc = minidom.parse("E:\\1_CODE\\0_github\\python\\diveintopython\\xml\\binary.xml")
 
-print(xmldoc.toxml())
+reflist = xmldoc.getElementsByTagName("ref")
+
+typeRef = reflist[1]
+
+print(typeRef.toxml())
