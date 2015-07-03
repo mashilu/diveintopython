@@ -7,7 +7,7 @@
   </ref>
   <ref id="byte" attr="test">
     <p>
-    	<xref id="bit"/>
+      <xref id="bit"/>
       <xref id="bit"/>
       <xref id="bit"/>
       <xref id="bit"/>
